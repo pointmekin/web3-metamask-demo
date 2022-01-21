@@ -88,7 +88,7 @@ export const TransactionsProvider = ({ children }: any) => {
     try {
       if (ethereum) {
         const transactionsContract = createEthereumContract();
-        const currentTransactionCount = await transactionsContract.getTransactionCount();
+        const currentTransactionCount = await transactionsContract.getTransactionCoutn();
 
         window.localStorage.setItem("transactionCount", currentTransactionCount);
       }
@@ -138,7 +138,7 @@ export const TransactionsProvider = ({ children }: any) => {
         console.log(`Success - ${transactionHash.hash}`);
         setIsLoading(false);
 
-        const transactionsCount = await transactionsContract.getTransactionCount();
+        const transactionsCount = await transactionsContract.getTransactionCoutn();
 
         setTransactionCount(transactionsCount.toNumber());
       } else {
